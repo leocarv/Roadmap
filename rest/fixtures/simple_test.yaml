@@ -1,0 +1,49 @@
+-   model: rest.DummyType
+    pk: 1
+    fields:
+        name: My dummy type
+
+-   model: rest.DummyType
+    pk: 2
+    fields:
+        name: My dummy type 2
+        clearof: 1
+
+-   model: rest.DummyStuff
+    pk: 1
+    fields:
+        name: Stuff 1
+
+-   model: rest.DummyStuff
+    pk: 2
+    fields:
+        name: Stuff 2
+
+-   model: rest.DummyStuff
+    pk: 3
+    fields:
+        name: Stuff 3
+
+-   model: rest.DummyStuff
+    pk: 4
+    fields:
+        name: Stuff 4
+
+-   model: rest.Dummy
+    pk: 1
+    fields:
+        name: My dummy 1
+        dummy_stuff: [1,2]
+        dummy_type: 1
+
+-   model: rest.Dummy
+    pk: 2
+    fields:
+        name: My dummy 2
+        dummy_stuff: [3]
+        dummy_type: 2
+
+-   model: rest.SecurityTest
+    pk: 1
+    fields:
+        name: Teste

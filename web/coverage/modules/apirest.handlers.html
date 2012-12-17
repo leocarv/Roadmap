@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <title>Test coverage report: apirest.handlers</title>
+    <style type="text/css" media="screen">
+      a
+      {
+        color: #3d707a;
+      }
+      
+      a:hover, a:active
+      {
+        color: #bf7d18;
+      }
+    
+      body 
+      {
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        font-size: 13px;
+      }
+      
+      .nav 
+      {
+        font-size: 12px;
+        margin-left: 50px;
+      }
+
+      .ignored
+      {
+        color: #707070;
+      }
+
+      .executed 
+      {
+        color: #3d9900;
+      }
+
+      .missed 
+      {
+        color: red;
+        font-weight: bold;
+      }
+
+      .excluded 
+      {
+        color: #6090f0;
+        font-weight: lighter;
+      }
+    
+      #content-header 
+      {
+        font-size: 12px;
+        padding: 18px 0 18px 50px;
+      }
+
+      #content-header h1 
+      {
+        font-size: 16px;
+        margin: 10px 0 0 0;
+        color: #909090;
+      }
+      
+      #module-name
+      {
+        color: #583707;
+      }
+    
+      #content-header p
+      {
+        font-size: 13px;
+        margin: 0;
+        color: #909090;
+      }
+
+      #content-header .normal 
+      {
+        color: #609030;
+      }
+
+      #content-header .warning 
+      {
+        color: #d0a000;
+      }
+
+      #content-header .critical 
+      {
+        color: red;
+      }
+      
+      #source-listing 
+      {
+        margin-bottom: 24px;
+      }
+
+      #source-listing ol 
+      {
+        padding: 0 0 0 50px;
+        width: 90%;
+        font-family: monospace;
+        list-style-position: outside;
+      }
+
+      #source-listing ol li 
+      {
+        line-height: 18px;
+        font-size: small;
+      }
+        
+      #source-listing ol code 
+      {
+        padding:  0 .001em 0 0; /* Firefox doesn't render empty li's properly */
+        font-size: medium;
+        white-space: pre;
+      }
+   </style>
+  </head>
+
+  <body>
+
+<div class="nav">
+  <a href="../index.html">index</a>
+  &gt;&gt; <a href="apirest.models.html">apirest.models</a>
+</div>
+
+<div id="content-header">
+  <h1>
+    <span id="module-name">apirest.handlers</span>:
+    107 total statements,
+    <span class="normal">100.0% covered</span>
+  </h1>
+  <p>Generated: Thu 2012-12-06 11:44 BRST</p>
+  <p>Source file: /home/lcarvalho/projects/roadmap/apirest/handlers.py</p>
+  <p>
+    Stats:
+    <span class="executed">103 executed</span>,
+    <span class="missed">0 missed</span>,
+    <span class="excluded">4 excluded</span>,
+    <span class="ignored">47 ignored</span> 
+  </p> 
+</div>
+
+<div id="source-listing">
+  <ol>
+    <li class="ignored"><code>#!python</code></li>
+<li class="excluded"><code>from rest.handler import BaseHandler</code></li>
+<li class="excluded"><code>from rest.utils import rc</code></li>
+<li class="excluded"><code>from apirest.models import ProductSpec, Feature, Product, FeatureValue</code></li>
+<li class="excluded"><code>from django.db import transaction</code></li>
+<li class="ignored"><code></code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>class ProductSpecHandler(BaseHandler):</code></li>
+<li class="executed"><code>    allowed_methods = ('GET', 'POST', 'PUT', 'DELETE')</code></li>
+<li class="executed"><code>    model = ProductSpec</code></li>
+<li class="executed"><code>    list_fields = ('id', 'name')</code></li>
+<li class="executed"><code>    fields = ('id', 'name', ('feature_set', ('id', 'name', 'description')))</code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>    @transaction.commit_manually</code></li>
+<li class="ignored"><code>    def create(self, request, *args, **kwargs):</code></li>
+<li class="executed"><code>        data = request.POST     # recupera os dados</code></li>
+<li class="executed"><code>        ps = ProductSpec.objects.create(</code></li>
+<li class="ignored"><code>                                name=data.get('name'))  # salva productspec</code></li>
+<li class="executed"><code>        if 'feature_set' in data:  # se receber feature_set</code></li>
+<li class="executed"><code>            for feature in data['feature_set']:  # salva os itens de features</code></li>
+<li class="executed"><code>                Feature.objects.create(product_spec=ps,</code></li>
+<li class="ignored"><code>                                       name=feature['name'],</code></li>
+<li class="ignored"><code>                                       description=feature['description'])</code></li>
+<li class="executed"><code>        transaction.commit()</code></li>
+<li class="executed"><code>        return ps</code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>    def read(self, request, **kwargs):</code></li>
+<li class="executed"><code>        try:</code></li>
+<li class="executed"><code>            if 'id' in kwargs:  # se receber o parametro id recupera o registro</code></li>
+<li class="executed"><code>                ps = ProductSpec.objects.get(pk=kwargs['id'])</code></li>
+<li class="ignored"><code>            else:  # senao recupera todos registros</code></li>
+<li class="executed"><code>                ps = ProductSpec.objects.all()</code></li>
+<li class="executed"><code>        except ProductSpec.DoesNotExist:</code></li>
+<li class="executed"><code>            return rc.NOT_FOUND</code></li>
+<li class="executed"><code>        return ps</code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>    @transaction.commit_manually</code></li>
+<li class="ignored"><code>    def update(self, request, id):</code></li>
+<li class="executed"><code>        try:</code></li>
+<li class="executed"><code>            ps = ProductSpec.objects.get(pk=id)</code></li>
+<li class="executed"><code>        except ProductSpec.DoesNotExist:</code></li>
+<li class="executed"><code>            return rc.NOT_FOUND</code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>        data = request.PUT             # recupera os dados</code></li>
+<li class="executed"><code>        ps.name = data['name']  # atualiza o nome do spec</code></li>
+<li class="executed"><code>        ps.save()</code></li>
+<li class="ignored"><code></code></li>
+<li class="ignored"><code>        # apaga todas features</code></li>
+<li class="executed"><code>        Feature.objects.filter(product_spec__exact=ps.id).delete()</code></li>
+<li class="executed"><code>        if 'feature_set' in data:</code></li>
+<li class="executed"><code>            for feature in data['feature_set']:   # salva os features</code></li>
+<li class="executed"><code>                Feature.objects.create(product_spec=ps,</code></li>
+<li class="ignored"><code>                                    name=feature['name'],</code></li>
+<li class="ignored"><code>                                    description=feature['description'])</code></li>
+<li class="executed"><code>        transaction.commit()</code></li>
+<li class="executed"><code>        return ps</code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>    def delete(self, request, id):</code></li>
+<li class="executed"><code>        try:</code></li>
+<li class="executed"><code>            ps = ProductSpec.objects.get(pk=id)  # tenta recuperar productSpec</code></li>
+<li class="executed"><code>            ps.delete()  # e apagar de acordo com o ID passado</code></li>
+<li class="executed"><code>        except ProductSpec.DoesNotExist:</code></li>
+<li class="executed"><code>            return rc.NOT_FOUND</code></li>
+<li class="executed"><code>        return rc.DELETED  # returns HTTP 204</code></li>
+<li class="ignored"><code></code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>class ProductHandler(BaseHandler):</code></li>
+<li class="executed"><code>    allowed_methods = ('GET', 'POST', 'PUT', 'DELETE')</code></li>
+<li class="executed"><code>    model = Product</code></li>
+<li class="executed"><code>    list_fields = ('id', 'name', 'price')</code></li>
+<li class="executed"><code>    fields = ('id', 'name', 'price',</code></li>
+<li class="ignored"><code>        ('product_spec', ('id', 'name')),</code></li>
+<li class="ignored"><code>        ('featurevalue_set', ('id', 'value',</code></li>
+<li class="ignored"><code>            ('feature', ('name', 'id'))))</code></li>
+<li class="ignored"><code>        )</code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>    @transaction.commit_manually</code></li>
+<li class="ignored"><code>    def create(self, request):</code></li>
+<li class="executed"><code>        data = request.POST  # recupera os dados</code></li>
+<li class="executed"><code>        try:  # recupera o productSpec</code></li>
+<li class="executed"><code>            ps = ProductSpec.objects.get(pk=data['product_spec']['id'])</code></li>
+<li class="executed"><code>        except ProductSpec.DoesNotExist:</code></li>
+<li class="executed"><code>            return rc.NOT_FOUND</code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>        pr = Product.objects.create(product_spec=ps,  # insere o Product</code></li>
+<li class="ignored"><code>                                    name=data['name'],</code></li>
+<li class="ignored"><code>                                    price=data['price'])</code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>        if 'featurevalue_set' in data:  # se receber featurevalue_set</code></li>
+<li class="executed"><code>            for featurevalue in data['featurevalue_set']:  # salva os itens</code></li>
+<li class="executed"><code>                try:</code></li>
+<li class="ignored"><code>                    #recupera o Feature</code></li>
+<li class="executed"><code>                    ft = Feature.objects.get(pk=featurevalue['feature']['id'])</code></li>
+<li class="executed"><code>                except Feature.DoesNotExist:</code></li>
+<li class="executed"><code>                    transaction.rollback()</code></li>
+<li class="executed"><code>                    return rc.NOT_FOUND</code></li>
+<li class="executed"><code>                FeatureValue.objects.create(product=pr,  # salva o Value</code></li>
+<li class="ignored"><code>                                            feature=ft,</code></li>
+<li class="ignored"><code>                                            value=featurevalue['value'])</code></li>
+<li class="executed"><code>        transaction.commit()</code></li>
+<li class="executed"><code>        return pr</code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>    def read(self, request, **kwargs):</code></li>
+<li class="executed"><code>        try:</code></li>
+<li class="executed"><code>            if 'id' in kwargs:  # se receber o parametro id recupera o registro</code></li>
+<li class="executed"><code>                pr = Product.objects.get(pk=kwargs['id'])</code></li>
+<li class="ignored"><code>            else:  # senao recupera todos registros</code></li>
+<li class="executed"><code>                pr = Product.objects.all()</code></li>
+<li class="executed"><code>        except Product.DoesNotExist:</code></li>
+<li class="executed"><code>            return rc.NOT_FOUND</code></li>
+<li class="executed"><code>        return pr</code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>    @transaction.commit_manually</code></li>
+<li class="ignored"><code>    def update(self, request, id):</code></li>
+<li class="executed"><code>        data = request.PUT    # recupera os dados</code></li>
+<li class="executed"><code>        try:</code></li>
+<li class="ignored"><code>            #recupera o Produce e productSpec</code></li>
+<li class="executed"><code>            pr = Product.objects.get(pk=id)</code></li>
+<li class="executed"><code>            ps = ProductSpec.objects.get(pk=data['product_spec']['id'])</code></li>
+<li class="executed"><code>        except Product.DoesNotExist:</code></li>
+<li class="executed"><code>            return rc.NOT_FOUND</code></li>
+<li class="executed"><code>        except ProductSpec.DoesNotExist:</code></li>
+<li class="executed"><code>            return rc.NOT_FOUND</code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>        pr.product_spec = ps</code></li>
+<li class="executed"><code>        pr.name = data['name']</code></li>
+<li class="executed"><code>        pr.price = data['price']</code></li>
+<li class="executed"><code>        pr.save()</code></li>
+<li class="ignored"><code></code></li>
+<li class="ignored"><code>        #apaga todas features values</code></li>
+<li class="executed"><code>        FeatureValue.objects.filter(product__exact=pr.id).delete()</code></li>
+<li class="executed"><code>        if 'featurevalue_set' in data:  # se receber feature_set</code></li>
+<li class="ignored"><code>            # salva os itens de feature values</code></li>
+<li class="executed"><code>            for featurevalue in data['featurevalue_set']:</code></li>
+<li class="executed"><code>                try:</code></li>
+<li class="ignored"><code>                    #recupera o Feature</code></li>
+<li class="executed"><code>                    ft = Feature.objects.get(pk=featurevalue['feature']['id'])</code></li>
+<li class="executed"><code>                except Feature.DoesNotExist:</code></li>
+<li class="executed"><code>                    transaction.rollback()</code></li>
+<li class="executed"><code>                    return rc.NOT_FOUND</code></li>
+<li class="executed"><code>                FeatureValue.objects.create(product=pr,</code></li>
+<li class="ignored"><code>                                            feature=ft,</code></li>
+<li class="ignored"><code>                                            value=featurevalue['value'])</code></li>
+<li class="executed"><code>        transaction.commit()</code></li>
+<li class="executed"><code>        return pr</code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>    def delete(self, request, id):</code></li>
+<li class="executed"><code>        try:</code></li>
+<li class="executed"><code>            ps = Product.objects.get(pk=id)</code></li>
+<li class="executed"><code>            ps.delete()</code></li>
+<li class="executed"><code>        except Product.DoesNotExist:</code></li>
+<li class="executed"><code>            return rc.NOT_FOUND</code></li>
+<li class="ignored"><code>        else:</code></li>
+<li class="executed"><code>            return rc.DELETED  # returns HTTP 204</code></li>
+  </ol>
+</div>
+
+<div class="nav">
+  <a href="../index.html">index</a>
+  &gt;&gt; <a href="apirest.models.html">apirest.models</a>
+</div>
+
+  </body>
+</html>
+

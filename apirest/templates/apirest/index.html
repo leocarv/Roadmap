@@ -1,0 +1,17 @@
+﻿<html>
+<head>
+    <title>ROADMAP</title>
+    <link rel="stylesheet" type="text/css" href="/static/sdk/ext-4.1.1a/resources/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="/static/resources/css/style.css" />
+    {% if js_debug  %}
+    <!-- dev -->
+    <script type="text/javascript" src="/static/sdk/ext-4.1.1a/ext-all-debug-w-comments.js"></script>
+    <script type="text/javascript" src="/static/app.js"></script>
+    {% else %}
+    <!-- prod --> 
+    <script type="text/javascript" src="/static/sdk/ext-4.1.1a/ext-all.js"></script>
+    <script type="text/javascript" src="/static/app-all.js"></script>
+    {% endif %}
+</head>
+<body></body>
+</html>

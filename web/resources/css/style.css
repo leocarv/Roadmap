@@ -1,0 +1,144 @@
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-group {
+  background: url("../images/icons/famfam/group.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-group-add {
+  background: url("../images/icons/famfam/group_add.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-group-go {
+  background: url("../images/icons/famfam/group_go.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-relationship {
+  background: url("../images/icons/famfam/table_relationship.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-edit {
+  background: url("../images/icons/famfam/page.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-add {
+  background: url("../images/icons/famfam/add.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-set-to {
+  background: url("../images/icons/famfam/application_go.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-delete {
+  background: url("../images/icons/famfam/delete.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-user-add {
+  background: url("../images/icons/famfam/user_add.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-user-del {
+  background: url("../images/icons/famfam/user_delete.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-warning {
+  background: url("../images/icons/famfam/error.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-error {
+  background: url("../images/icons/famfam/cancel.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-info {
+  background: url("../images/icons/famfam/information.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-success {
+  background: url("../images/icons/famfam/accept.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-right {
+  background: url("../images/icons/famfam/arrow_right.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-left {
+  background: url("../images/icons/famfam/arrow_left.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-up {
+  background: url("../images/icons/famfam/arrow_up.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-down {
+  background: url("../images/icons/famfam/arrow_down.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-find {
+  background: url("../images/icons/famfam/zoom.png") no-repeat left center;
+}
+
+/* line 3, ../sass/src/_icons.sass */
+.nv-icon-cog {
+  background: url("../images/icons/famfam/cog.png") no-repeat left center;
+}
+
+/* line 27, ../sass/src/_icons.sass */
+.nv-icon-ok {
+  background: url("../images/icons/ok.png") no-repeat left center;
+}
+
+/* line 30, ../sass/src/_icons.sass */
+.nv-icon-alert {
+  background: url("../images/icons/alert.png") no-repeat left center;
+}
+
+/* line 33, ../sass/src/_icons.sass */
+.nv-icon-fail {
+  background: url("../images/icons/fail.png") no-repeat left center;
+}
+
+/* line 36, ../sass/src/_icons.sass */
+.nv-icon-form-add {
+  background: url("../images/icons/famfam/application_form_add.png") no-repeat center center;
+}
+
+/* line 39, ../sass/src/_icons.sass */
+.nv-icon-criticity-clear {
+  background: url("../images/icons/criticity/bullet_clear.png") no-repeat center center;
+}
+
+/* line 42, ../sass/src/_icons.sass */
+.nv-icon-criticity-warning {
+  background: url("../images/icons/criticity/bullet_warning.png") no-repeat center center;
+}
+
+/* line 45, ../sass/src/_icons.sass */
+.nv-icon-criticity-minor {
+  background: url("../images/icons/criticity/bullet_minor.png") no-repeat center center;
+}
+
+/* line 48, ../sass/src/_icons.sass */
+.nv-icon-criticity-major {
+  background: url("../images/icons/criticity/bullet_major.png") no-repeat center center;
+}
+
+/* line 51, ../sass/src/_icons.sass */
+.nv-icon-criticity-critical {
+  background: url("../images/icons/criticity/bullet_critical.png") no-repeat center center;
+}

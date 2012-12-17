@@ -1,0 +1,33 @@
+.enhanced-tab-bar {
+    background: #3D3D3D;
+    font-family: Helvetica, Verdana;
+    font-size: 12px;
+    color: #FFF;
+    text-align: center
+}
+
+.enhanced-tab-bar  li {
+    cursor: hand;
+    cursor: pointer;
+    padding: 12px 0 ;
+}
+
+.enhanced-tab-bar  li.x-item-selected {
+    background: url('bg_arrow.png'), url('bg_selected_top.png'), url('bg_selected_bottom.png'); 
+    background-position: right center, center top, center bottom;
+    background-repeat: no-repeat, repeat-x, repeat-x;
+}
+
+/**
+ * Theme 2
+ */
+.enhanced-tab-bar.modern{
+    background: url('bg_modern.png') !important;
+}
+
+.enhanced-tab-bar.modern  li.x-item-selected {
+    background: url('bg_arrow.png') !important; 
+    background-position: right center, bottom center !important;
+    background-repeat: no-repeat, no-repeat !important;
+}
+

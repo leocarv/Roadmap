@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>  
+    <head>
+        <title>Roadmap - Login</title>
+        <style type='text/css'>
+            body {
+                padding: 0;
+                margin: 0;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 13px;
+                font-weight: normal;
+            }          
+
+            .content {
+                margin: 0 auto;
+                width: 512px;
+            }
+
+            #login-container {
+                display: block;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border-left: 1px dashed silver;
+                border-right: 1px dashed silver;
+            }
+
+            label {
+                display: block;
+                float: left;
+                width: 150px;
+                height: 28px;
+                margin-left: 40px;
+                line-height: 28px;
+            }
+
+            .textfield {
+                width: 250px;
+                margin: 3px 40px 3px 0;
+
+                background-color: #FFF;
+                border-radius: 4px;
+                border-color: #DDD;
+                border-style: solid;
+                border-width: 1px;
+                height: 28px;
+                outline-width: 0px;
+                padding: 4px 10px 4px 10px;
+                text-decoration: none;
+            }
+
+            .button {
+                width: 150px;
+                height: 30px;
+                margin: 3px 40px 3px 310px;
+
+                background-color: #37E;
+                border-radius: 4px;
+                border-color: #111;
+                border-style: solid;
+                border-width: 1px;
+                color: white;
+                height: 28px;
+                outline-width: 0px;
+                padding: 4px 10px 4px 10px;
+                text-align: center;
+                text-decoration: none;
+                text-shadow: #111 0px -1px 0px;
+                vertical-align: middle;
+            }
+
+            .header {
+                width: 100%;
+                height: 50px;
+                line-height: 50px;
+
+                background: linear-gradient(top, #474747 1%, #565656 40%, #565656 60%, #474747 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF474747', endColorstr='#FF474747');
+                background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, #474747), color-stop(40%, #565656), color-stop(60%, #565656), color-stop(100%, #474747));
+                background: -webkit-linear-gradient(top, #474747 1%, #565656 40%, #565656 60%, #474747 100%);
+                background: -moz-linear-gradient(top, #474747 1%, #565656 40%, #565656 60%, #474747 100%);
+                background: -o-linear-gradient(top, #474747 1%, #565656 40%, #565656 60%, #474747 100%);
+                background: -ms-linear-gradient(top, #474747 1%, #565656 40%, #565656 60%, #474747 100%);
+                background: linear-gradient(top, #474747 1%, #565656 40%, #565656 60%, #474747 100%);
+            }
+
+            .logo {
+                font-size:28px;
+                color:#fff;
+            }
+
+            .errormsg {
+                background-color: #F2DEDE;
+                border-color: #EED3D7;
+                border-radius: 4px;
+                border-style: solid;
+                border-width: 1px;
+                color: #B94A48;
+                display: block;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                margin-bottom: 18px;
+                padding: 8px 0;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='header'>
+            <div class='logo content'>ROADMAP&nbsp;</div>
+        </div>
+        <div class='content'>
+            <br />
+            
+            {% if error_msg %}
+            <div class='errormsg'>{{ error_msg }}</div>
+            {% endif %}
+            
+            <div id='login-container'>
+                <form method="POST">
+                    <label for='username'>Usuario</label>
+                    <input class='textfield' type="text" name="username" id='username'/>
+                    <br />
+                    <label for='password'>Senha</label>
+                    <input class='textfield' type="password" name="password" id="password" />
+                    <br />
+                    <input class='button' type="submit" value="Entrar" />
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
