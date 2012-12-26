@@ -1,0 +1,47 @@
+http://192.168.8.245:8087/apirest/productspec/
+http://192.168.8.245:8087/apirest/productspec/1/
+{
+    "feature_set": [
+        {
+            "id": 1, 
+            "name": "width", 
+            "description": "largura do produto"
+        }, 
+        {
+            "id": 2, 
+            "name": "color", 
+            "description": "cor do produto"
+        }
+    ], 
+    "name": "produtoSpec 1"
+}
+
+http://192.168.8.245:8087/apirest/product/
+http://192.168.8.245:8087/apirest/product/1/
+{
+    "featurevalue_set": [
+        {
+            "feature": {
+                "name": "width", 
+                "id": 1
+            }, 
+            "value": "200", 
+            "id": 1
+        }, 
+        {
+            "feature": {
+                "name": "color", 
+                "id": 2
+            }, 
+            "value": "blue", 
+            "id": 2
+        }
+    ], 
+    "price": "10", 
+    "product_spec": {
+        "name": "produtoSpec 1", 
+        "id": 1
+    }, 
+    "name": "produto 1", 
+    "id": 1
+}
